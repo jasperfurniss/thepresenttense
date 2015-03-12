@@ -1,0 +1,22 @@
+<h1></h1>
+
+<ul class="recipe-listing-container">
+  {{#each recipe in model}}
+<li class="recipe-listing">
+
+<h3>{{recipe.name}}</h3>
+
+{{#link-to 'recipes.recipe' recipe}}
+  <div><img {{bind-attr src=recipe.image}}></div>
+{{/link-to}}
+
+</li>
+  {{/each}}
+</ul>
+
+{{#link-to 'recipes.new'}}
+  <i class="fa fa-plus-circle"></i>
+{{/link-to}}
+
+
+{{outlet}}
