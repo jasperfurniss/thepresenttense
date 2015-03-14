@@ -7,9 +7,9 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('home');
-  this.route('goal');
   this.route('create');
   this.route('account');
+  this.route('goal');
 });
 
 

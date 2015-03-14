@@ -1,1 +1,29 @@
+<!-- <div class="header-container">
+  <img class='profile-pic' src=""/>
+  <p class='username'>Welcome back, Jasper.</p>
+  <h1 class="logo">{{fa-icon "arrow-circle-down"}}</h1>
+  <h1 class="logo">{{fa-icon "lightbulb-o"}}</h1>
+  <h1 class="logo">{{fa-icon "cog"}}</h1>
+</div> -->
+
+
+
+{{#each goal in model}}
+<ul>
+  <li class="goal">{{goal.title}}</li>
+</ul>
+{{/each}}
+
+
+{{#link-to 'create'}}
+  <div class="create-button">
+    {{fa-icon "fa-plus-circle"}}
+  </div>
+{{/link-to}}
+
+
+{{#link-to 'account'}}
+  <button class="myaccount-button">My Account</button>
+{{/link-to}}
+
 {{outlet}}
