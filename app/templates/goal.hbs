@@ -15,26 +15,28 @@
       <li class="header-icons">{{fa-icon "fa-user"}}</li>
     {{/link-to}}
   </ul>
-
-
-
-
 </div>
 
 <div class="left-container">
-<ul class="list">
-  {{#each goal in model}}
-    <li class="goal">{{fa-icon "fa-square-o"}}{{goal.title}}</li>
-  {{/each}}
-  {{#link-to 'create'}}
-    <div class="create-button">
-      {{fa-icon "fa-plus-circle"}}
-    </div>
-  {{/link-to}}
-</ul>
+  <ul class="list">
+    {{#each goal in model}}
+      <li class="goal">{{fa-icon "fa-square-o"}}{{goal.title}}</li>
+    {{/each}}
+    {{#link-to 'create'}}
+      <div class="create-button">
+        {{fa-icon "fa-plus-circle"}}
+      </div>
+    {{/link-to}}
+  </ul>
 </div>
 
+
+
 <div class="right-container">
+  <div class="timer">
+    <!-- {{x-timer autoStart='false' startTime='1500' format='HH:MM:SS' isStopWatch='true' updatePausedTime='updatePausedTime'}} -->
+    {{x-timer autoStart='false' startTime='1500' format='HH:MM:SS' isStopWatch='true' updatePausedTime='updatePausedTime'}}
+  </div>
 </div>
 
 {{outlet}}

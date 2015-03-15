@@ -22,8 +22,8 @@ $dividercolor:#b6b6b6;
 //*******FONTS********//
 //********************//
 
-$primaryfont: 'Raleway', sans-serif;
-$secondaryfont: 'Raleway', sans-serif;
+$primaryfont: 'Playfair Display', serif;
+$secondaryfont: 'Playfair Display', serif;
 
 //********************//
 //*******LAYOUT*******//
@@ -51,7 +51,7 @@ body {
 }
 
 .login-container {
-  @include span-columns(12, collapse);
+  @include span-columns(12, block-collapse);
   text-align: center;
 }
 .login-button {
@@ -331,13 +331,16 @@ body {
 }
 
 .list {
-  @include span-columns(6);
-  border: 10px solid $primarycolor;
+  border: 3px solid $primarycolor;
 }
+
+.left-container {
+  @include span-columns(6, block-collapse);
+}
+
 .header-list{
-@include span-columns(12);
+@include span-columns(12, block-collapse);
 text-align: center;
-background-color: orange;
 }
 .header-icons {
   display: inline-block;
@@ -347,8 +350,12 @@ background-color: orange;
 }
 
 .right-container {
-  @include span-columns(6);
-
-  border: 10px solid orange;
+  @include span-columns(6, block-collapse);
+  border: 3px solid $primarycolor;
   height: 500px;
+}
+
+.timer {
+  font-size: 3em;
+  text-align: center;
 }
