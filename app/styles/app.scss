@@ -1,10 +1,13 @@
+//*********************//
+//******IMPORTS********//
+//*********************//
+
 @import 'bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import 'bower_components/neat/app/assets/stylesheets/neat';
 
 //*********************//
 //*******COLORS********//
 //*********************//
-
 
 $darkprimarycolor:#616161;
 $primarycolor:#4F646F;
@@ -15,20 +18,31 @@ $primarytextcolor:#212121;
 $secondarytextcolor:#727272;
 $dividercolor:#b6b6b6;
 
-
 //********************//
 //*******FONTS********//
 //********************//
 
+$primaryfont: wire-one, sans-serif;
+$secondaryfont: wire-one, sans-serif;
 
-$primaryfont: sansita-one, sans-serif;
-$secondaryfont: helvetica;
+//********************//
+//*******LAYOUT*******//
+//********************//
+$visual-grid: true !default;
+$visual-grid-color: gray !default;
+$gutter: none;
+
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
-/*   @include outer-container; */
+  @include outer-container(block-collapse);
   background-color: white;
   font-family: $secondaryfont;
 }
+
 
 .logo {
   text-align: center;
@@ -147,7 +161,6 @@ body {
 
 .emphasized {
   font-family: $primaryfont;
-  font-size: 2.2em;
   color: $primarycolor;
 }
 
@@ -254,6 +267,37 @@ body {
   -webkit-animation-duration: 10s;
 }
 
+.biglogo {
+  color: #4f646f;
+  font-size: 14em;
+}
+
+.animate-container {
+  position: absolute;
+  height: 300px;
+}
+
+.biglogo {
+  position: relative;
+  top: -127px;
+  left: 620px;
+  -webkit-animation-name: jasperfade;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 10s;
+}
+
+
+.piecontainer {
+  position: relative;
+  top: -520px;
+  left: 606px;
+  -webkit-animation-name: crosbyfade;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 10s;
+}
+
 
 //*******************************************//
 //************** GOAL ROUTE *****************//
@@ -264,7 +308,6 @@ body {
   font-family: $primaryfont;
   color: $primarycolor;
   font-size: 1.2em;
-
 }
 
 .form-container {
@@ -287,34 +330,7 @@ body {
   font-family: $secondaryfont;
 }
 
-.biglogo {
-  color: #4f646f;
-  font-size: 14em;
-}
-
-.animate-container {
-  position: absolute;
-  height: 300px;
-}
-
-.biglogo {
-  position: relative;
-  top: -127px;
-  left: 620px;
-  -webkit-animation-name: jasperfade;
-  -webkit-animation-timing-function: ease-in;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-duration: 10s;
-
-}
-
-.piecontainer {
-  position: relative;
-  top: -520px;
-  left: 606px;
-  -webkit-animation-name: crosbyfade;
-  -webkit-animation-timing-function: ease-in;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-duration: 10s;
-
+.list {
+  @include span-columns(6, block-collapse);
+  border: 10px solid $primarycolor;
 }

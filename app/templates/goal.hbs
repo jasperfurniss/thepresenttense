@@ -7,23 +7,26 @@
 </div> -->
 
 
+<div class="header">
+  {{#link-to 'account'}}
+    <button class="myaccount-button">My Account</button>
+  {{/link-to}}
+</div>
 
-{{#each goal in model}}
-<ul>
-  <li class="goal">{{goal.title}}</li>
+<div class="left-container">
+<ul class="list">
+  {{#each goal in model}}
+    <li class="goal">{{fa-icon "fa-square-o"}}{{goal.title}}</li>
+  {{/each}}
+  {{#link-to 'create'}}
+    <div class="create-button">
+      {{fa-icon "fa-plus-circle"}}
+    </div>
+  {{/link-to}}
 </ul>
-{{/each}}
+</div>
 
-
-{{#link-to 'create'}}
-  <div class="create-button">
-    {{fa-icon "fa-plus-circle"}}
-  </div>
-{{/link-to}}
-
-
-{{#link-to 'account'}}
-  <button class="myaccount-button">My Account</button>
-{{/link-to}}
+<div class="right-container">
+</div>
 
 {{outlet}}

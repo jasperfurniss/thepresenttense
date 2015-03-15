@@ -19,20 +19,27 @@
 </div>
 
 <div class="saying">
-  <span>This is <span class="emphasized">why</span> you wake up everyday.</span>
+  <span>This is why<span class="emphasized"></span> you wake up everyday.</span>
   <div>
     <span>Pause and reflect for a moment.</span>
   </div>
 </div>
 
 <div class="animate-container">
-  <h1 class="biglogo">{{fa-icon "arrow-circle-down"}}</h1>
+  <a>
+    {{#link-to 'account'}}
+      <h1 class="biglogo"><a>{{fa-icon "arrow-circle-down"}}</a></h1>
+    {{/link-to}}
+  </a>
   <div class="piecontainer">
-      <div class="pie-timer">
-       <div class="timer-slot"><div class="timer-l">
-       </div></div>
-       <div class="timer-r"></div>
-     </div>
+    <div class="pie-timer">
+      <div class="timer-slot">
+        <div class="timer-l">
+        </div>
+      </div>
+      <div class="timer-r">
+      </div>
+    </div>
   </div>
 </div>
 
