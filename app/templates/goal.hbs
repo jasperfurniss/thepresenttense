@@ -8,9 +8,17 @@
 
 
 <div class="header">
-  {{#link-to 'account'}}
-    <button class="myaccount-button">My Account</button>
-  {{/link-to}}
+  <ul class="header-list">
+      <li class="header-icons"><a>{{fa-icon "arrow-circle-down"}}</a></li>
+      <li class="header-icons">{{fa-icon "lightbulb-o"}}</li>
+    {{#link-to 'account'}}
+      <li class="header-icons">{{fa-icon "fa-user"}}</li>
+    {{/link-to}}
+  </ul>
+
+
+
+
 </div>
 
 <div class="left-container">

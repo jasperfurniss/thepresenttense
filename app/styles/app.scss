@@ -22,8 +22,8 @@ $dividercolor:#b6b6b6;
 //*******FONTS********//
 //********************//
 
-$primaryfont: wire-one, sans-serif;
-$secondaryfont: wire-one, sans-serif;
+$primaryfont: 'Raleway', sans-serif;
+$secondaryfont: 'Raleway', sans-serif;
 
 //********************//
 //*******LAYOUT*******//
@@ -317,7 +317,7 @@ body {
 .header-container {
   height: 100px;
   margin: 0;
-  background-color: $primarycolor;
+  background-color: blue;
 }
 
 .create-button {
@@ -326,11 +326,29 @@ body {
 }
 
 .goal {
-  font-size: 1.2em;
+  font-size: 2em;
   font-family: $secondaryfont;
 }
 
 .list {
-  @include span-columns(6, block-collapse);
+  @include span-columns(6);
   border: 10px solid $primarycolor;
+}
+.header-list{
+@include span-columns(12);
+text-align: center;
+background-color: orange;
+}
+.header-icons {
+  display: inline-block;
+  font-size: 4em;
+  color: $primarycolor;
+  padding: 50px;
+}
+
+.right-container {
+  @include span-columns(6);
+
+  border: 10px solid orange;
+  height: 500px;
 }
