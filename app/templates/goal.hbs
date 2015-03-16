@@ -1,16 +1,9 @@
-<!-- <div class="header-container">
-  <img class='profile-pic' src=""/>
-  <p class='username'>Welcome back, Jasper.</p>
-  <h1 class="logo">{{fa-icon "arrow-circle-down"}}</h1>
-  <h1 class="logo">{{fa-icon "lightbulb-o"}}</h1>
-  <h1 class="logo">{{fa-icon "cog"}}</h1>
-</div> -->
-
-
 <div class="header">
   <ul class="header-list">
-      <li class="header-icons"><a>{{fa-icon "arrow-circle-down"}}</a></li>
-      <li class="header-icons">{{fa-icon "lightbulb-o"}}</li>
+    <img class='profile-pic' src=""/>
+    <p class='username'>Welcome back, Jasper.</p>
+    <li class="header-icons"><a>{{fa-icon "arrow-circle-down"}}</a></li>
+    <li class="header-icons">{{fa-icon "lightbulb-o"}}</li>
     {{#link-to 'account'}}
       <li class="header-icons">{{fa-icon "fa-user"}}</li>
     {{/link-to}}
@@ -19,8 +12,16 @@
 
 <div class="left-container">
   <ul class="list">
+    <h2 class="todo-header">
+      Goals
+    </h2>
+
     {{#each goal in model}}
-      <li class="goal">{{fa-icon "fa-square-o"}}{{goal.title}}</li>
+      <li class="goal">
+        {{fa-icon "fa-square-o"}}
+        {{goal.title}}
+        <button {{action 'destroy' goal}}>X</button>
+      </li>
     {{/each}}
     {{#link-to 'create'}}
       <div class="create-button">
@@ -30,12 +31,9 @@
   </ul>
 </div>
 
-
-
 <div class="right-container">
   <div class="timer">
-    <!-- {{x-timer autoStart='false' startTime='1500' format='HH:MM:SS' isStopWatch='true' updatePausedTime='updatePausedTime'}} -->
-    {{x-timer autoStart='false' startTime='1500' format='HH:MM:SS' isStopWatch='true' updatePausedTime='updatePausedTime'}}
+    {{x-timer autoStart='false' startTime='1500' format='HH:MM:SS' isStopWatch='true'}}
   </div>
 </div>
 

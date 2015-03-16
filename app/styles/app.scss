@@ -22,8 +22,9 @@ $dividercolor:#b6b6b6;
 //*******FONTS********//
 //********************//
 
-$primaryfont: 'Playfair Display', serif;
-$secondaryfont: 'Playfair Display', serif;
+$primaryfont: 'Lato', sans-serif;
+$secondaryfont: 'helvetica', sans-serif;
+$tertiaryfont: 'sansita-one,' sans-serif;
 
 //********************//
 //*******LAYOUT*******//
@@ -41,36 +42,37 @@ body {
   @include outer-container(block-collapse);
   background-color: white;
   font-family: $secondaryfont;
+  font-weight: 100;
 }
 
 
 .logo {
   text-align: center;
-  color: #4F646F;
-  font-size: 4.5em;
+  color: $primarycolor;
+  font-size: 10em;
 }
 
 .login-container {
   @include span-columns(12, block-collapse);
   text-align: center;
+  vertical-align: center;
+
 }
-.login-button {
-  width: 125px;
-}
+
 .login-inputs,
 .login-button,
 .goal-input,
 .goal-button,
 .addgoal-button,
 .myaccount-button {
-  border: solid 3px #DEE7E7;
+  border: solid 3px $accentcolor;
   border-radius: 5px;
   background-color: white;
   width: 300px;
   color: $primarycolor;
-  font-size: 1.2em;
-  padding: 15px;
+  font-size: 1.5em;
   margin: 10px;
+  padding: 15px;
 }
 
 &:focus {
@@ -268,7 +270,7 @@ body {
 }
 
 .biglogo {
-  color: #4f646f;
+  color: $primarycolor;
   font-size: 14em;
 }
 
@@ -321,17 +323,26 @@ body {
 }
 
 .create-button {
-  color: #4F646F;
+  color: $primarycolor;
   font-size: 4.5em;
 }
 
 .goal {
   font-size: 2em;
-  font-family: $secondaryfont;
+  font-family: $primaryfont;
+
 }
 
 .list {
   border: 3px solid $primarycolor;
+  list-style-type: none;
+}
+
+.header-icons {
+  display: inline-block;
+  font-size: 4em;
+  color: $primarycolor;
+  padding: 50px;
 }
 
 .left-container {
@@ -339,14 +350,7 @@ body {
 }
 
 .header-list{
-@include span-columns(12, block-collapse);
-text-align: center;
-}
-.header-icons {
-  display: inline-block;
-  font-size: 4em;
-  color: $primarycolor;
-  padding: 50px;
+  text-align: center;
 }
 
 .right-container {
@@ -355,7 +359,15 @@ text-align: center;
   height: 500px;
 }
 
-.timer {
-  font-size: 3em;
+.todo-header {
+  font-family: $primaryfont;
+  font-size: 5em;
   text-align: center;
+  font-weight: 100;
+}
+.timer h4{
+  font-family: $primaryfont;
+  font-size: 10em;
+  text-align: center;
+  font-weight: 100;
 }

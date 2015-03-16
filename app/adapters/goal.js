@@ -4,20 +4,20 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   find: function(name, id){
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/Goal/" + id).then(function(bookmark){
-      bookmark.id = bookmark.objectId;
-      delete bookmark.objectId;
-      return bookmark;
+    return ajax("https://api.parse.com/1/classes/Goal/" + id).then(function(goal){
+      goal.id = goal.objectId;
+      delete goal.objectId;
+      return goal;
     });
   },
 
   findAll: function(name) {
     /* jshint unused: false */
     return ajax("https://api.parse.com/1/classes/Goal").then(function(response){
-      return response.results.map(function(bookmark) {
-        bookmark.id = bookmark.objectId;
-        delete bookmark.objectId;
-        return bookmark;
+      return response.results.map(function(goal) {
+        goal.id = goal.objectId;
+        delete goal.objectId;
+        return goal;
       });
     });
   },
@@ -29,10 +29,10 @@ export default Ember.Object.extend({
               where: JSON.stringify(query)
             })
     }).then(function(response){
-      return response.results.map(function(bookmark) {
-        bookmark.id = bookmark.objectId;
-        delete bookmark.objectId;
-        return bookmark;
+      return response.results.map(function(goal) {
+        goal.id = goal.objectId;
+        delete goal.objectId;
+        return goal;
       });
     });
   },

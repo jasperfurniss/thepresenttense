@@ -12,6 +12,4 @@ export default Ember.Route.extend({
       }.bind(this));
     }
   }
-
-
 });
