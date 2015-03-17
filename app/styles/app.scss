@@ -33,6 +33,7 @@ $visual-grid: true !default;
 $visual-grid-color: gray !default;
 $gutter: none;
 
+
 * {
   margin: 0;
   padding: 0;
@@ -45,6 +46,9 @@ body {
   font-weight: 100;
 }
 
+a:hover {
+  color: $dividercolor;
+}
 
 .logo {
   text-align: center;
@@ -325,6 +329,7 @@ body {
 .create-button {
   color: $primarycolor;
   font-size: 4.5em;
+  text-align: center;
 }
 
 .goal {
@@ -334,8 +339,9 @@ body {
 }
 
 .list {
-  border: 3px solid $primarycolor;
   list-style-type: none;
+  @include span-columns(6, block-collapse);
+  @include shift(3);
 }
 
 .header-icons {
@@ -347,6 +353,7 @@ body {
 
 .left-container {
   @include span-columns(6, block-collapse);
+  border: 3px solid $primarycolor;
 }
 
 .header-list{
@@ -365,9 +372,26 @@ body {
   text-align: center;
   font-weight: 100;
 }
-.timer h4{
+.timer {
   font-family: $primaryfont;
   font-size: 10em;
   text-align: center;
   font-weight: 100;
+}
+
+h4 {
+  font-family: $primaryfont;
+  font-size: 1em;
+  font-weight: 100;
+}
+
+.btn {
+  border: solid 3px $primarycolor;
+  border-radius: 5px;
+  background-color: white;
+  color: $primarycolor;
+  margin: 10px;
+  padding: 15px;
+  font-size: 30px;
+
 }
