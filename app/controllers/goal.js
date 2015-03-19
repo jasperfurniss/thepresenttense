@@ -6,9 +6,20 @@ export default Ember.Controller.extend({
       goal.destroy();
     },
 
-    // addFavorite: function(){
-    //   var goal = this.get('model');
-    //   this.get('session.currentUser').addFavorite(goal);
-    // }
-  }
+    cancel: function() {
+      this.set('isEditing', true);
+    },
+
+    edit: function(){
+      this.set('isEditing', true);
+    },
+
+    save: function(){
+      this.set('isEditing', false);
+    }
+
+  },
+
+  isEditing: false,
+
 });

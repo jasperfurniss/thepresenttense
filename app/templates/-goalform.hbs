@@ -1,0 +1,16 @@
+<form {{action 'saveGoal' on="submit"}} class="form-container">
+  <div>
+    <span class="goal-title">New Goal</span>
+  </div>
+  <div>
+    <div>
+      {{input class="goal-input" placeholder="Let's get this done!" value=title}}
+    </div>
+    <div>
+      {{input class="goal-input" placeholder="Goal Motivation Image" value=image}}
+    </div>
+  </div>
+  <button class="goal-button" {{action "saveGoal"}}>Save this Goal</button>
+</form>
+
+{{outlet}}

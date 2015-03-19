@@ -3,7 +3,6 @@
   "dependencies": {
     "jquery": "^1.11.1",
     "ember": "1.10.0",
-
     "ember-resolver": "~0.1.11",
     "loader.js": "ember-cli/loader.js#1.0.1",
     "ember-cli-shims": "ember-cli/ember-cli-shims#0.0.3",
@@ -14,6 +13,7 @@
     "qunit": "~1.17.1",
     "bourbon": "~4.2.1",
     "neat": "~1.7.1",
-    "bootstrap": "~3.3.1"
+    "bootstrap": "~3.3.1",
+    "ember-simple-auth": "0.7.3"
   }
 }

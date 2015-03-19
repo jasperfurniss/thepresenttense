@@ -30,6 +30,7 @@ export default Ember.Object.extend({
     }.bind(this));
   },
 
+
   findQuery: function(type, query){
     var adapter = this.container.lookup('adapter:' + type);
     return adapter.findQuery(type, query);

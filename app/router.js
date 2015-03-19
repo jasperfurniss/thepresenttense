@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('create');
   this.route('account');
   this.route('goal');
+  this.route('login');
+  this.route('edit', { path: '/edit/:goal_id'});
 });
 
 

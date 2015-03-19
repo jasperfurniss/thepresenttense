@@ -19,10 +19,18 @@
     {{#each goal in model}}
       <li class="goal">
         {{fa-icon "fa-square-o"}}
-        {{goal.title}}
-        <button {{action 'destroy' goal}}>X</button>
+        {{#if goal.isEditing}}
+          {{input value=goal.title}}
+          <button class="change-buttons" {{action 'save' goal}}>Save</button>
+          <button class="change-buttons" {{action 'cancel' goal}}>Cancel</button>
+        {{else}}
+          {{goal.title}}
+          <a class="change-buttons" {{action 'edit' goal}}>{{fa-icon "fa-pencil-square-o"}}</a>
+          <a class="change-buttons"  {{action 'destroy' goal}}>{{fa-icon "fa-trash-o"}}</a>
+        {{/if}}
       </li>
     {{/each}}
+
     {{#link-to 'create'}}
       <div class="create-button">
         {{fa-icon "fa-plus-circle"}}
@@ -33,7 +41,7 @@
 
 <div class="right-container">
   <div class="timer">
-    {{x-timer autoStart='false' startTime='1500' format='HH:MM:SS' isStopWatch='true'}}
+    {{x-timer autoStart=false endTime="1500" format='MM:SS' isStopWatch='true'}}
   </div>
 </div>
 

@@ -10,13 +10,12 @@
 //*********************//
 
 $darkprimarycolor:#616161;
-$primarycolor:#4F646F;
+$primarycolor:#DF815B;
 $lightprimarycolor:#f5f5f5;
-$textprimarycolor:#212121;
-$accentcolor:#DEE7E7;
-$primarytextcolor:#212121;
+$accentcolor:#96B7C6;
+$primarytextcolor:#E5D38B;
 $secondarytextcolor:#727272;
-$dividercolor:#b6b6b6;
+$dividercolor:#A5CDB3;
 
 //********************//
 //*******FONTS********//
@@ -44,10 +43,16 @@ body {
   background-color: white;
   font-family: $secondaryfont;
   font-weight: 100;
+  color: $primarytextcolor;
+}
+a, i {
+  cursor: pointer;
+  color: $primarycolor;
 }
 
 a:hover {
-  color: $dividercolor;
+  color: green;
+
 }
 
 .logo {
@@ -160,7 +165,7 @@ a:hover {
     }
 
 .saying {
-  font-family: $secondaryfont;
+  font-family: $primaryfont;
   text-align: center;
   font-size: 2em;
   }
@@ -393,5 +398,8 @@ h4 {
   margin: 10px;
   padding: 15px;
   font-size: 30px;
+
+}
+.change-buttons {
 
 }

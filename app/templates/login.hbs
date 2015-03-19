@@ -1,0 +1,10 @@
+<form {{action 'authenticate' on='submit'}}>
+
+    <div class="login-container">
+      <h1 class="logo">{{fa-icon "arrow-circle-down"}}</h1>
+      <div>{{input value=identification class="login-inputs form-control" type='email' placeholder='Email'}}</div>
+      <div>{{input value=password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
+    </div>
+    <button type="submit" class="login-button">Login</button>
+
+</form>

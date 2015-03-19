@@ -5,6 +5,10 @@ export default Ember.Object.extend({
     return this.store.destroy('goal', this);
   },
 
+  edit: function(){
+    return this.store.edit('goal', this);
+  },
+
   save: function(){
     return this.store.save('goal', this);
   },
