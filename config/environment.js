@@ -14,7 +14,14 @@ module.exports = function(environment) {
     },
 
     'simple-auth': {
-      routeAfterAuthentication: 'home'
+      routeAfterAuthentication: 'home',
+      authorizer: 'authorizer:parse',
+      crossOriginWhitelist: ['https://api.parse.com']
+    },
+
+    parseKeys: {
+      applicationId: "I9jp3a1SVCHn34o0rO9Synf9WhtbLKe8UO1nTMWk",
+      restApi: "0jPQno1FXHWw0NJ44T9SQWRwPyepNlH4QNois5Nq"
     },
 
 
@@ -24,12 +31,13 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
+     'report-uri': "'http://localhost:4200'",
      'default-src': "'none'",
      'script-src': "'self' *",
      'font-src': "'self' *",
      'connect-src': "'self' https://api.parse.com",
      'img-src': "'self' *",
-     'style-src': "'self' *",
+     'style-src': "'self' 'unsafe-inline' *",
      'media-src': "'self'"
    }
   };
@@ -55,7 +63,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.baseURL = '/thepresenttense/';
   }
 
   return ENV;

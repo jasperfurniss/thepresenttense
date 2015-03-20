@@ -2,6 +2,15 @@
   <div>
     <span class="goal-title">New Goal</span>
   </div>
+
+  <div class="second"><img class="edit-images second" {{bind-attr src=session.photo1.url}} alt="" /></div>
+  <!-- <img class="edit-images" {{bind-attr src=session.photo2.url}} alt="" />
+  <img class="edit-images" {{bind-attr src=session.photo3.url}} alt="" /> -->
+
+  {{log session.photo1.url}}
+  {{log session.photo2.url}}
+  {{log session.photo3.url}}
+
   <div>
     <div>
       {{input class="goal-input" placeholder="Let's get this done!" value=title}}
@@ -10,7 +19,8 @@
       {{input class="goal-input" placeholder="Goal Motivation Image" value=image}}
     </div>
   </div>
-  <button class="goal-button" {{action "saveGoal"}}>Save this Goal</button>
+  <button class="goal-button" type="submit" {{action "saveGoal"}}>Save this Goal</button>
 </form>
+
 
 {{outlet}}

@@ -7,6 +7,7 @@
     {{#link-to 'account'}}
       <li class="header-icons">{{fa-icon "fa-user"}}</li>
     {{/link-to}}
+    <a {{ action 'invalidateSession' }}>Logout</a>
   </ul>
 </div>
 
@@ -19,18 +20,15 @@
     {{#each goal in model}}
       <li class="goal">
         {{fa-icon "fa-square-o"}}
-        {{#if goal.isEditing}}
-          {{input value=goal.title}}
-          <button class="change-buttons" {{action 'save' goal}}>Save</button>
-          <button class="change-buttons" {{action 'cancel' goal}}>Cancel</button>
-        {{else}}
           {{goal.title}}
-          <a class="change-buttons" {{action 'edit' goal}}>{{fa-icon "fa-pencil-square-o"}}</a>
+          {{log goal.createdBy.photo1.url}}
+
+          {{#link-to "edit" goal}}
+            <a class="change-buttons">{{fa-icon "fa-pencil-square-o"}}</a>
+          {{/link-to}}
           <a class="change-buttons"  {{action 'destroy' goal}}>{{fa-icon "fa-trash-o"}}</a>
-        {{/if}}
       </li>
     {{/each}}
-
     {{#link-to 'create'}}
       <div class="create-button">
         {{fa-icon "fa-plus-circle"}}

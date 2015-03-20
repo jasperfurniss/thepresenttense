@@ -1,9 +1,9 @@
-<form class="login-form" {{action 'authenticate' on='submit'}}>
+<form class="register-form" {{action 'register' on='submit'}}>
       <h1 class="logo">{{fa-icon "arrow-circle-down"}}</h1>
       <div>{{input value=identification class="login-inputs form-control" type='email' placeholder='Email'}}</div>
       <div>{{input value=password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
-      <button type="submit" class="login-button">Login</button>
-      <div class="sign-up-link">{{#link-to 'register'}}Sign up now{{/link-to}}</div>
+      <button type="submit" class="register-button">Register</button>
+      <div class="sign-up-link">{{#link-to 'login'}}I already have an account{{/link-to}}</div>
 </form>
 
 {{outlet}}

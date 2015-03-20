@@ -13,7 +13,7 @@ export default Ember.Object.extend({
 
   findAll: function(name) {
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/Goal").then(function(response){
+    return ajax("https://api.parse.com/1/classes/Goal" + "?include=createdBy").then(function(response){
       return response.results.map(function(goal) {
         goal.id = goal.objectId;
         delete goal.objectId;
