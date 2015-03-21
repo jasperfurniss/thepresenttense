@@ -20,8 +20,8 @@ module.exports = function(environment) {
     },
 
     parseKeys: {
-      applicationId: "I9jp3a1SVCHn34o0rO9Synf9WhtbLKe8UO1nTMWk",
-      restApi: "0jPQno1FXHWw0NJ44T9SQWRwPyepNlH4QNois5Nq"
+      applicationId: "7yK2wek0IQahfvoyZVvzbfHH6SlsGzDNGW3PLSRQ",
+      restApi: "YHraWBoMYONsrzvgLxzTmFQc6bYk4Dj8gB06m5Hv"
     },
 
 

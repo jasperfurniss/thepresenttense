@@ -25,19 +25,19 @@
     </div>
   </div>
 
-  <!-- <div class="second"><img class="edit-images second" {{bind-attr src=session.photo1.url}}/></div> -->
+  <!-- <div class="second"><img class="edit-images second" {{!bind-attr src=session.photo1.url}}/></div> -->
 
-  <!-- <img class="edit-images" {{bind-attr src=session.photo2.url}} alt="" />
-  <img class="edit-images" {{bind-attr src=session.photo3.url}} alt="" /> -->
+  <!-- <img class="edit-images" {{!bind-attr src=session.photo2.url}} alt="" />
+  <img class="edit-images" {{!bind-attr src=session.photo3.url}} alt="" /> -->
 
-  <!-- {{log session.photo1.url}}
-  {{log session.photo2.url}}
-  {{log session.photo3.url}} -->
-
-
+  {{!log session.photo1.url}}
+  {{!log session.photo2.url}}
+  {{!log session.photo3.url}}
 
 
-  <button class="goal-button" type="submit" {{action "saveGoal"}}>Save this Goal</button>
+
+
+  <button class="goal-button" type="submit">Save this Goal</button>
 </form>
 
 

@@ -14,7 +14,17 @@ export default Ember.Object.extend({
   findAll: function(name) {
     /* jshint unused: false */
     var currentUser = this.get('session.currentUser.id');
-    return ajax("https://api.parse.com/1/classes/Goal" + "?include=createdBy").then(function(response){
+    return ajax("https://api.parse.com/1/classes/Goal" + "?include=createdBy", {
+      data: {
+        where: {
+          "createdBy": {
+            "__type":"Pointer",
+            "className":"_User",
+            "objectId": currentUser
+          }
+        }
+      }
+    }).then(function(response){
       return response.results.map(function(goal) {
         goal.id = goal.objectId;
         delete goal.objectId;
@@ -90,14 +100,6 @@ export default Ember.Object.extend({
       }).then(function(response){
         record.id = response.objectId;
         record.createdAt = response.createdAt;
-        return ajax({
-          url:  "https://api.parse.com/1/classes/Goal/" + response.objectId,
-          type: "PUT",
-          data: JSON.stringify(record.serializeFriends(record.myTodos)),
-          contentType: 'application/json'
-        });
-      }).then(function(response) {
-        record.updatedAt = response.updatedAt;
         return record;
       });
     }

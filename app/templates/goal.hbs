@@ -2,7 +2,7 @@
   <ul class="header-list">
   </ul>
 </div>
-{{log session}}
+{{log session.currentUser}}
 
 
 <div class="left-container">
@@ -11,11 +11,13 @@
       Goals
     </h2>
 
+
     {{#each goal in model}}
       <li class="goal">
         {{fa-icon "fa-square-o"}}
           {{goal.title}}
-          <!-- {{log goal.createdBy.photo1.url}} -->
+
+
 
           {{#link-to "edit" goal}}
             <a class="change-buttons">{{fa-icon "fa-pencil-square-o"}}</a>
@@ -36,13 +38,15 @@
     {{x-timer autoStart=false endTime="1500" format='MM:SS' isStopWatch='true'}}
   </div>
 </div>
-{{#link-to 'account'}}
-  <a class="myaccountlink">My Account      |</a>
-{{/link-to}}
+
+  {{#link-to 'account'}}
+    <a class="myaccountlink">My Account      |</a>
+  {{/link-to}}
 <div class="logstuff">
   <a class="loggy">
     <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>
     <!-- <a class="logout-arrow" >{{fa-icon "fa-angle-double-right"}}</a> -->
   </a>
 </div>
+
 {{outlet}}

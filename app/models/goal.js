@@ -1,18 +1,7 @@
 import Ember from 'ember';
+import Model from 'ember-magic-man/model';
 
-export default Ember.Object.extend({
-  destroy: function(){
-    return this.store.destroy('goal', this);
-  },
-
-  edit: function(){
-    return this.store.edit('goal', this);
-  },
-
-  save: function(){
-    return this.store.save('goal', this);
-  },
-
+export default Model.extend({
   serializeFriend: function(friend) {
     if (friend.id) {
     friend.id = friend.id;
@@ -33,13 +22,13 @@ export default Ember.Object.extend({
   },
 
   toJSON: function(){
-    var data = this.getProperties('', '', '', '', '', '');
-    var ownerId = this.get('activityOwner.id');
-    if(ownerId) {
-    Ember.set(data, 'activityOwner', {
+    var data = this._super();
+    var creatorId = this.get('createdBy.id');
+    if(creatorId) {
+    Ember.set(data, 'createdBy', {
         __type: 'Pointer',
         className: '_User',
-        objectId: ownerId
+        objectId: creatorId
       });
     }
 
