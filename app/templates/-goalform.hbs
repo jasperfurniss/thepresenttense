@@ -1,24 +1,42 @@
 <form {{action 'saveGoal' on="submit"}} class="form-container">
   <div>
-    <span class="goal-title">New Goal</span>
+    <span class="todo-header">New Goal</span>
   </div>
 
-  <div class="second"><img class="edit-images second" {{bind-attr src=session.photo1.url}} alt="" /></div>
+  <div>{{input class="goal-input" placeholder="Goal" value=title}}</div>
+
+  <div class="pictures">
+    <div class="cards">
+      <div class="card">
+        <div class="card-image first" style=imageStyle>
+          <img class="photo1" {{bind-attr src=model.photo1}}>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image second" style=imageStyle>
+          <img class="photo2"{{bind-attr src=model.photo2}}>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image third" style=imageStyle>
+          <img class="photo3"{{bind-attr src=model.photo3}}>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="second"><img class="edit-images second" {{bind-attr src=session.photo1.url}}/></div> -->
+
   <!-- <img class="edit-images" {{bind-attr src=session.photo2.url}} alt="" />
   <img class="edit-images" {{bind-attr src=session.photo3.url}} alt="" /> -->
 
-  {{log session.photo1.url}}
+  <!-- {{log session.photo1.url}}
   {{log session.photo2.url}}
-  {{log session.photo3.url}}
+  {{log session.photo3.url}} -->
 
-  <div>
-    <div>
-      {{input class="goal-input" placeholder="Let's get this done!" value=title}}
-    </div>
-    <div>
-      {{input class="goal-input" placeholder="Goal Motivation Image" value=image}}
-    </div>
-  </div>
+
+
+
   <button class="goal-button" type="submit" {{action "saveGoal"}}>Save this Goal</button>
 </form>
 

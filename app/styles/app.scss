@@ -49,6 +49,7 @@ a, i {
   cursor: pointer;
   color: $primarycolor;
   &:hover {
+    text-decoration: none;
     color: $primarytextcolor;
   }
 }
@@ -411,9 +412,61 @@ h4 {
 .login-form, .register-form {
   vertical-align: center;
   text-align: center;
+  padding-top: 7em;
 }
+
 
 .change-buttons {
   float: right;
-/*   padding: 5px
- */}
+}
+
+.logout-button {
+  position: fixed;
+  bottom: 30px;
+  right: 80px;
+  font-size: 1.5em;
+  padding: 30px;
+
+}
+/*   &:hover {
+  display: inline;
+}
+}
+
+.logout-arrow {
+position: absolute;
+bottom: 50px;
+right: 80px;
+font-size: 2.5em;
+} */
+
+.bulb {
+position: relative;
+
+}
+/* .user-icon {
+  @include span-columns(1);
+  @include shift(9);
+  padding: 30px;
+} */
+
+.header-list.li {
+  @include span-columns(1);
+}
+
+.welcomeback {
+  position: relative;
+  left: -1229px;
+}
+
+.header {
+  height: 100px;
+}
+
+.myaccountlink {
+  position: fixed;
+  bottom: 30px;
+  right: 151px;
+  font-size: 1.5em;
+  padding: 30px;
+}

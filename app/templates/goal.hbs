@@ -1,15 +1,9 @@
 <div class="header">
   <ul class="header-list">
-    <img class='profile-pic' src=""/>
-    <p class='username'>Welcome back, Jasper.</p>
-    <li class="header-icons"><a>{{fa-icon "arrow-circle-down"}}</a></li>
-    <li class="header-icons">{{fa-icon "lightbulb-o"}}</li>
-    {{#link-to 'account'}}
-      <li class="header-icons">{{fa-icon "fa-user"}}</li>
-    {{/link-to}}
-    <a {{ action 'invalidateSession' }}>Logout</a>
   </ul>
 </div>
+{{log session}}
+
 
 <div class="left-container">
   <ul class="list">
@@ -21,7 +15,7 @@
       <li class="goal">
         {{fa-icon "fa-square-o"}}
           {{goal.title}}
-          {{log goal.createdBy.photo1.url}}
+          <!-- {{log goal.createdBy.photo1.url}} -->
 
           {{#link-to "edit" goal}}
             <a class="change-buttons">{{fa-icon "fa-pencil-square-o"}}</a>
@@ -42,5 +36,13 @@
     {{x-timer autoStart=false endTime="1500" format='MM:SS' isStopWatch='true'}}
   </div>
 </div>
-
+{{#link-to 'account'}}
+  <a class="myaccountlink">My Account      |</a>
+{{/link-to}}
+<div class="logstuff">
+  <a class="loggy">
+    <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>
+    <!-- <a class="logout-arrow" >{{fa-icon "fa-angle-double-right"}}</a> -->
+  </a>
+</div>
 {{outlet}}

@@ -13,6 +13,7 @@ export default Ember.Object.extend({
 
   findAll: function(name) {
     /* jshint unused: false */
+    var currentUser = this.get('session.currentUser.id');
     return ajax("https://api.parse.com/1/classes/Goal" + "?include=createdBy").then(function(response){
       return response.results.map(function(goal) {
         goal.id = goal.objectId;
@@ -45,23 +46,56 @@ export default Ember.Object.extend({
     });
   },
 
-  save: function(name, record) {
-    /* jshint unused: false */
+//   save: function(name, record) {
+//     /* jshint unused: false */
+//     if(record.id) {
+//       return ajax({
+//         url: "https://api.parse.com/1/classes/Goal/" + record.id,
+//         type: "PUT",
+//         data: JSON.stringify(record)
+//       }).then(function(response) {
+//         response.id = response.objectId;
+//         delete response.objectId;
+//         return response;
+//       });
+//     } else {
+//       return ajax({
+//         url: "https://api.parse.com/1/classes/Goal",
+//         type: "POST",
+//         data: JSON.stringify(record)
+//       }).then(function(response) {
+//         record.updatedAt = response.updatedAt;
+//         return record;
+//       });
+//     }
+//   }
+// });
+
+  save: function(name, record){
     if(record.id) {
       return ajax({
         url: "https://api.parse.com/1/classes/Goal/" + record.id,
         type: "PUT",
-        data: JSON.stringify(record)
+        data: JSON.stringify(record.toJSON()),
       }).then(function(response) {
-        response.id = response.objectId;
-        delete response.objectId;
-        return response;
+        record.updatedAt = response.updatedAt;
+        return record;
       });
     } else {
       return ajax({
-        url: "https://api.parse.com/1/classes/Goal",
+        url:  "https://api.parse.com/1/classes/Goal",
         type: "POST",
-        data: JSON.stringify(record)
+        data: JSON.stringify(record.toJSON()),
+        contentType: 'application/json'
+      }).then(function(response){
+        record.id = response.objectId;
+        record.createdAt = response.createdAt;
+        return ajax({
+          url:  "https://api.parse.com/1/classes/Goal/" + response.objectId,
+          type: "PUT",
+          data: JSON.stringify(record.serializeFriends(record.myTodos)),
+          contentType: 'application/json'
+        });
       }).then(function(response) {
         record.updatedAt = response.updatedAt;
         return record;

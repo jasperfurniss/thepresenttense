@@ -7,6 +7,7 @@ export function initialize(container, application) {
 
   Session.reopen({
     setCurrentUser: function() {
+      console.log("current user initializer is running");
       var id = this.get("objectId");
 
       if (!Ember.isEmpty(id)) {

@@ -13,15 +13,33 @@ export default Ember.Object.extend({
     return this.store.save('goal', this);
   },
 
-  toJSON: function(){
-    var data = Ember.Object.create(this);
+  serializeFriend: function(friend) {
+    if (friend.id) {
+    friend.id = friend.id;
+  } else {
+    friend.id = friend.objectId;
+  }
+    return {__type: "Pointer", className: "_User", objectId: friend.id};
+  },
 
-    var userId = this.get('createdBy.id');
-    if(userId) {
-      data.set('createdBy', {
+  serializeFriends: function(friends){
+    return {
+      myTodos: {
+        __op: "AddRelation",
+        objects: friends.map(this.serializeFriend)
+
+      }
+    };
+  },
+
+  toJSON: function(){
+    var data = this.getProperties('', '', '', '', '', '');
+    var ownerId = this.get('activityOwner.id');
+    if(ownerId) {
+    Ember.set(data, 'activityOwner', {
         __type: 'Pointer',
         className: '_User',
-        objectId: userId
+        objectId: ownerId
       });
     }
 
