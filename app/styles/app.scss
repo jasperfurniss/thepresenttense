@@ -91,6 +91,8 @@ a, i {
 
 
 
+
+
 &:focus {
   outline: none;
   border-color: $primarycolor;
@@ -135,17 +137,16 @@ a, i {
 }
 
 
-/* .first {
+.first {
   width: 375px;
   height: 375px;
-background-image: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10861116_10205391607859386_7049947253420727357_o.jpg');  background-size: cover;
-  display: block;
+/* background-image: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10861116_10205391607859386_7049947253420727357_o.jpg');  background-size: cover;
+ */  display: block;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   background-position: center;
   }
- */
 .second {
   width: 375px;
   height: 375px;
@@ -238,8 +239,8 @@ background-image: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/t3
   border: 30px solid $primarycolor;
   width: 140px;
   height: 140px;
-/*   margin-left: -100px;
-margin-top: -100px; */
+  margin-left: -100px;
+  margin-top: -100px;
   border-left-color: transparent;
   border-top-color: transparent;
   -webkit-animation-duration: 10s;
@@ -294,7 +295,7 @@ margin-top: -100px; */
 
 .biglogo {
   position: relative;
-  top: -127px;
+  top: 0px;
   left: 620px;
   -webkit-animation-name: jasperfade;
   -webkit-animation-timing-function: ease-in;
@@ -305,7 +306,7 @@ margin-top: -100px; */
 
 .piecontainer {
   position: relative;
-  top: -520px;
+  top: -240px;
   left: 606px;
   -webkit-animation-name: crosbyfade;
   -webkit-animation-timing-function: ease-in;
@@ -337,7 +338,7 @@ margin-top: -100px; */
 
 .create-button {
   color: $primarycolor;
-  font-size: 4.5em;
+  font-size: 4em;
   text-align: center;
 }
 
@@ -407,6 +408,13 @@ h4 {
   }
 }
 
+/* .login-background {
+  background: url("http://spiralfindings.com/wp-content/uploads/2014/01/IMG_5769.jpg") no-repeat;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+ height: 850px; */
 
 
 .login-form, .register-form {
@@ -469,4 +477,207 @@ position: relative;
   right: 151px;
   font-size: 1.5em;
   padding: 30px;
+}
+
+/* input[type=file] {
+  display: inline-block;
+  opacity:0;
+} */
+
+//z-index
+$zBase: 100;
+$zPop: 400;
+$zOverlay: 600;
+$zOverContent: 800;
+
+//mixins
+@mixin bp($bp, $min-max: min-width) {
+    $em: $bp/16;
+    @media(#{$min-max}: #{$em}em) {
+        @content;
+    }
+}
+
+//color
+$yellow: #FFDE16;
+
+body {
+    background: white;
+}
+
+.wrap {
+    padding: 1em;
+
+    @include bp(700) {
+        padding: 2em;
+    }
+}
+
+.modal {
+    display: block;
+    padding: 0 1em;
+    text-align: center;
+    width: 100%;
+
+    @include bp(700) {
+        padding: 1em 2em;
+        text-align: right;
+    }
+
+     & > label {
+        background: #000;
+        border-radius: .2em;
+        color: $yellow;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        margin: 0.5em 1em;
+        padding: 0.75em 1.5em;
+        transition: all 0.55s ;
+        &:hover { transform: scale(.97); }
+
+     }
+
+    input {
+        position: absolute;
+        right: 60%;
+        top: 30px;
+        z-index: -10;
+        @include bp(700) {
+            right: 50px;
+        }
+    }
+
+    &__overlay {
+        background: $primarytextcolor;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        top: 0;
+        z-index: -800;
+
+    }
+
+    &__box {
+        /* padding: 1em .75em;
+        position: relative; */
+        margin: 1em auto;
+        /* max-width: 500px;
+        width: 90%; */
+
+        @include bp(600, min-height) {
+            left: 50%;
+            position: absolute;
+            top: 100%;
+            transform: translate(-50%, -80%);
+        }
+
+        @include bp(800) {
+            padding: 1.75em;
+        }
+
+        label {
+            background: transparent;
+            border-radius: 50%;
+            color: none;
+            cursor: pointer;
+            display: inline-block;
+            height: 1.5em;
+            line-height: 1.5em;
+            position: absolute;
+            right: .5em;
+            top: .5em;
+            width: 1.5em;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 1em;
+        }
+
+        p {
+            color: white;
+            text-align: left;
+        }
+    }
+}
+
+
+//hide modal till button is pressed
+.modal__overlay {
+    opacity: 0;
+    overflow: hidden;
+    transform: scale(.5);
+    transition: .75s cubic-bezier(0.68, -0.55, 0.265, 1.55);;
+}
+//open modal
+input:checked ~ .modal__overlay {
+    opacity: 1;
+    transform: scale(1);
+    transition: all .70s cubic-bezier(0.68, -0.55, 0.265, 1.55);;
+    z-index: 3;
+}
+
+input:focus + label {
+    transform: scale(.97);
+}
+
+
+.modal > label {
+   background: transparent;
+ }
+
+#modal {
+  display: none;
+}
+
+/* .bulbmodal {
+  margin: 0;
+  padding: 0;
+} */
+
+.modal {
+  position: inherit;
+  padding: 0px;
+}
+
+
+.fa-lightbulb-o {
+  display: inline;
+  padding: 0em;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  left: -280px;
+}
+
+.fa {
+  padding: 5px;
+}
+
+.photo1, .photo2, .photo3 {
+  display: block;
+  width: 89vw;
+  height: 100%;
+  object-fit: cover;
+}
+
+input[type=file] {
+  display: inline;
+}
+
+.bulbmodal {
+  color:white;
+}
+
+.idea-header {
+ font-family: $secondaryfont;
+ font-weight: 200;
+ color: $primarytextcolor;
+ font-size: .5em;
+}
+.modal__box, h2 {
+  text-transform: none;
 }

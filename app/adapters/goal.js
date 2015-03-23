@@ -56,31 +56,6 @@ export default Ember.Object.extend({
     });
   },
 
-//   save: function(name, record) {
-//     /* jshint unused: false */
-//     if(record.id) {
-//       return ajax({
-//         url: "https://api.parse.com/1/classes/Goal/" + record.id,
-//         type: "PUT",
-//         data: JSON.stringify(record)
-//       }).then(function(response) {
-//         response.id = response.objectId;
-//         delete response.objectId;
-//         return response;
-//       });
-//     } else {
-//       return ajax({
-//         url: "https://api.parse.com/1/classes/Goal",
-//         type: "POST",
-//         data: JSON.stringify(record)
-//       }).then(function(response) {
-//         record.updatedAt = response.updatedAt;
-//         return record;
-//       });
-//     }
-//   }
-// });
-
   save: function(name, record){
     if(record.id) {
       return ajax({

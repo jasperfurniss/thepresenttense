@@ -2,46 +2,55 @@
   <ul class="header-list">
   </ul>
 </div>
-{{log session.currentUser}}
-
-
 <div class="left-container">
   <ul class="list">
     <h2 class="todo-header">
       Goals
     </h2>
-
-
     {{#each goal in model}}
       <li class="goal">
-        {{fa-icon "fa-square-o"}}
-          {{goal.title}}
-
-
-
-          {{#link-to "edit" goal}}
-            <a class="change-buttons">{{fa-icon "fa-pencil-square-o"}}</a>
-          {{/link-to}}
-          <a class="change-buttons"  {{action 'destroy' goal}}>{{fa-icon "fa-trash-o"}}</a>
+        {{fa-icon "fa-square-o"}} {{goal.title}}
+        {{#link-to "edit" goal}}
+          <a class="change-buttons">{{fa-icon "fa-pencil-square-o"}}</a>
+        {{/link-to}}
+        <a class="change-buttons" {{action 'destroy' goal}}>{{fa-icon "fa-trash-o"}}</a>
       </li>
     {{/each}}
-    {{#link-to 'create'}}
-      <div class="create-button">
+    <div class="create-button">
+      {{#link-to 'create'}}
         {{fa-icon "fa-plus-circle"}}
-      </div>
-    {{/link-to}}
-  </ul>
-</div>
+      {{/link-to}}
+    </div>
+    <div class="create-button">
+      <div class="modal">
+        <input id="modal" type="checkbox" name="modal" tabindex="1">
+        <label for="modal">{{fa-icon "fa-lightbulb-o"}}</label>
+        <div class="modal__overlay">
+          <div class="modal__box">
+            <label class="bulbmodal" for="modal">&#10006;</label>
+            <h2 class="todo-header idea-header">Ideas & Tangents</h2>
+            <textarea name="name" rows="10" cols="20"></textarea>
 
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="wrap">
+      </div> -->
+    </div>
+  </ul>
+
+
+</div>
 <div class="right-container">
   <div class="timer">
     {{x-timer autoStart=false endTime="1500" format='MM:SS' isStopWatch='true'}}
   </div>
 </div>
 
-  {{#link-to 'account'}}
-    <a class="myaccountlink">My Account      |</a>
-  {{/link-to}}
+{{#link-to 'account'}}
+  <a class="myaccountlink">My Account      |</a>
+{{/link-to}}
 <div class="logstuff">
   <a class="loggy">
     <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>

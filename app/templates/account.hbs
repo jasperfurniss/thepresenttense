@@ -1,9 +1,21 @@
-<div class="profile-picture"></div>
+
+
 <div class="profile-username"></div>
 <div class="profile-home-pictures">
+
+  <div class=""><img {{bind-attr src=session.currentUser.accountpicture.url}}/></div>
   <div class=""></div>
   <div class=""></div>
-  <div class=""></div>
+  {{log session.currentUser.photo1.url}}
+  {{log currentUser}}
+  {{log this.model}}
+  {{log model}}
 </div>
+
+{{input type="file" name="firstphoto" value=""}}
+{{label for="file"}}
+<input type="file" name="secondphoto" value="">
+<input type="file" name="thirdphoto" value="">
+
 
 {{outlet}}

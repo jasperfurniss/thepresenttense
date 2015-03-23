@@ -2,17 +2,17 @@
   <div class="cards">
     <div class="card">
       <div class="card-image first" style=imageStyle>
-        <img class="photo1" {{bind-attr src=model.photo1}}>
+        <img class="photo1" {{bind-attr src=session.currentUser.photo1.url}}>
       </div>
     </div>
     <div class="card">
       <div class="card-image second" style=imageStyle>
-        <img class="photo2"{{bind-attr src=model.photo2}}>
+        <img class="photo2"{{bind-attr src=session.currentUser.photo2.url}}>
       </div>
     </div>
     <div class="card">
       <div class="card-image third" style=imageStyle>
-        <img class="photo3"{{bind-attr src=model.photo3}}>
+        <img class="photo3"{{bind-attr src=session.currentUser.photo3.url}}>
       </div>
     </div>
   </div>
