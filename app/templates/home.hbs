@@ -7,30 +7,28 @@
     </div>
     <div class="card">
       <div class="card-image second" style=imageStyle>
-        <img class="photo2"{{bind-attr src=session.currentUser.photo2.url}}>
+        <img class="photo2" {{bind-attr src=session.currentUser.photo2.url}}>
       </div>
     </div>
     <div class="card">
       <div class="card-image third" style=imageStyle>
-        <img class="photo3"{{bind-attr src=session.currentUser.photo3.url}}>
+        <img class="photo3" {{bind-attr src=session.currentUser.photo3.url}}>
       </div>
     </div>
   </div>
 </div>
-
 <div class="bottom-container">
   <div class="saying">
-    <span>This is why<span class="emphasized"></span> you wake up everyday.</span>
+    <span>This is why
+      <span class="emphasized"></span> you wake up everyday.</span>
     <div>
       <span>Pause and reflect for a moment.</span>
     </div>
   </div>
   <div class="animate-container">
-    <a>
-      {{#link-to 'goal'}}
-        <h1 class="biglogo"><a>{{fa-icon "arrow-circle-down"}}</a></h1>
-      {{/link-to}}
-    </a>
+    {{#link-to 'goal'}}
+      <h1 class="biglogo"><a>{{fa-icon "arrow-circle-down"}}</a></h1>
+    {{/link-to}}
     <div class="piecontainer">
       <div class="pie-timer">
         <div class="timer-slot">

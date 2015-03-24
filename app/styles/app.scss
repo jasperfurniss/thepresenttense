@@ -273,19 +273,20 @@ a, i {
 
 .piecontainer {
   text-align: center;
+
 }
 
 .pie-timer .timer-l, .pie-timer .timer-r {
   height: 0;
   width: 0;
-/*   margin: -100px 0 0 -100px; */
+  margin: -100px 0 0 -100px;
   border-width: 100px;
   -webkit-animation-duration: 10s;
 }
 
 .biglogo {
   color: $primarycolor;
-  font-size: 14em;
+  font-size: 14.5em;
 }
 
 .animate-container {
@@ -306,8 +307,8 @@ a, i {
 
 .piecontainer {
   position: relative;
-  top: -240px;
-  left: 606px;
+  top: -250px;
+  left: 603px;
   -webkit-animation-name: crosbyfade;
   -webkit-animation-timing-function: ease-in;
   -webkit-animation-fill-mode: forwards;
@@ -570,7 +571,7 @@ body {
         @include bp(600, min-height) {
             left: 50%;
             position: absolute;
-            top: 100%;
+            top: 60%;
             transform: translate(-50%, -80%);
         }
 
@@ -673,11 +674,27 @@ input[type=file] {
 }
 
 .idea-header {
- font-family: $secondaryfont;
- font-weight: 200;
- color: $primarytextcolor;
- font-size: .5em;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  text-align: center;
+  font-weight: 100;
 }
 .modal__box, h2 {
   text-transform: none;
+}
+
+textarea {
+  border: 2px solid white;
+  border-radius: 10px;
+  font-size: .75em;
+  background-color: transparent;
+  color: white;
+  font-family: $primaryfont;
+  font-weight: 100;
+
+  &:focus {
+    outline: none;
+
+  }
+
 }
