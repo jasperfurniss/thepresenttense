@@ -4,15 +4,10 @@
       <div>{{input value=lastname class="login-inputs form-control" type='name' placeholder='Last Name'}}</div>
       <div>{{input value=username class="login-inputs form-control" type='email' placeholder='Email'}}</div>
       <div>{{input value=password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
-      <div>{{!input type="file" value=session.currentUser.accountpicture class="uploadpic login-inputs form-control"}}</div>
-      <div><input id="uploadbutton" type="button" value="Upload Picture" {{action 'uploadPicture'}}/></div>
-
+      <div>{{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}</div>
 
       <button type="submit" class="register-button">Register</button>
       <div class="sign-up-link">{{#link-to 'login'}}I already have an account{{/link-to}}</div>
 </form>
 
 {{outlet}}
-
-{{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}
-<div><input id="uploadbutton" type="button" value="Upload Picture" {{action 'uploadPicture'}}/></div>

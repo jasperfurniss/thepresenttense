@@ -8,8 +8,9 @@
       Goals
     </h2>
     {{#each goal in model}}
-      <li class="goal">
-        {{fa-icon "fa-square-o"}} {{goal.title}}
+      <li class="goal" type="checkbox">
+        {{fa-icon "fa-square-o"}}
+        {{goal.title}}
         {{#link-to "edit" goal}}
           <a class="change-buttons">{{fa-icon "fa-pencil-square-o"}}</a>
         {{/link-to}}
@@ -47,14 +48,6 @@
   </div>
 </div>
 
-{{#link-to 'account'}}
-  <a class="myaccountlink">My Account      |</a>
-{{/link-to}}
-<div class="logstuff">
-  <a class="loggy">
-    <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>
-    <!-- <a class="logout-arrow" >{{fa-icon "fa-angle-double-right"}}</a> -->
-  </a>
-</div>
+
 
 {{outlet}}

@@ -1,19 +1,22 @@
 
-
-<div class="profile-username"></div>
-<div class="profile-home-pictures">
-
-  <div class=""><img {{bind-attr src=session.currentUser.accountpicture.url}}/></div>
-  <div class=""></div>
-  <div class=""></div>
-  {{log session.currentUser.photo1.url}}
-  {{log currentUser}}
-  {{log this.model}}
-  {{log model}}
+<div class="profile-picture-container" >
+  <img class="profile-picture"  {{bind-attr src=session.currentUser.accountpicture.url}}/>
+  <h1 class="logo profile-picture-fade">{{fa-icon "arrow-circle-down"}}</h1>
 </div>
 
-{{input type="file" name="firstphoto" value=""}}
-{{label for="file"}}
+
+<form class="register-form" {{action 'register' on='submit'}}>
+      <div>{{input value=firstname class="login-inputs form-control" type='name' placeholder='First Name'}}</div>
+      <div>{{input value=lastname class="login-inputs form-control" type='name' placeholder='Last Name'}}</div>
+      <div>{{input value=username class="login-inputs form-control" type='email' placeholder='Email'}}</div>
+      <div>{{input value=password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
+      <div>{{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}</div>
+      {{#link-to 'login'}}
+        <button type="submit" class="register-button" {{action 'register'}}>Save Account</button>
+      {{/link-to}}
+</form>
+
+<input type="file" name="firstphoto" value="">
 <input type="file" name="secondphoto" value="">
 <input type="file" name="thirdphoto" value="">
 

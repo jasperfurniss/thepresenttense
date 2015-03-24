@@ -9,13 +9,10 @@
 //*******COLORS********//
 //*********************//
 
-$darkprimarycolor:#616161;
-$primarycolor:#DF815B;
-$lightprimarycolor:#f5f5f5;
-$accentcolor:#E5D38B;
-$primarytextcolor:#96B7C6;
-$secondarytextcolor:#727272;
-$dividercolor:#A5CDB3;
+$primarycolor:#4F646F;
+$accentcolor:#9E9E9E;
+$primarytextcolor:#535657;
+$dividercolor:#F4FAFF;
 
 //********************//
 //*******FONTS********//
@@ -28,10 +25,6 @@ $tertiaryfont: 'sansita-one,' sans-serif;
 //********************//
 //*******LAYOUT*******//
 //********************//
-$visual-grid: true !default;
-$visual-grid-color: gray !default;
-
-
 
 * {
   margin: 0;
@@ -40,7 +33,7 @@ $visual-grid-color: gray !default;
 
 body {
   @include outer-container(block-collapse);
-  background-color: white;
+  background-color: $primarycolor;
   font-family: $secondaryfont;
   font-weight: 100;
   color: $primarytextcolor;
@@ -50,7 +43,7 @@ a, i {
   color: $primarycolor;
   &:hover {
     text-decoration: none;
-    color: $primarytextcolor;
+    color: $accentcolor;
   }
 }
 
@@ -78,7 +71,7 @@ a, i {
 .myaccount-button,
 .register-button {
   outline: none;
-  border: solid 3px $accentcolor;
+  border: solid 3px $primarycolor;
   border-radius: 5px;
   background-color: white;
   width: 300px;
@@ -403,9 +396,9 @@ h4 {
   padding: 15px;
   font-size: 20px;
   &:hover {
-  background-color: transparent;
-  border: solid 3px $primarytextcolor;
-  color: $primarytextcolor;
+  background-color: $primarycolor;
+  border: solid 3px $accentcolor;
+  color: $accentcolor;
   }
 }
 
@@ -696,5 +689,42 @@ textarea {
     outline: none;
 
   }
+
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  display: inline;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 999;
+  &:hover {
+    opacity:100;
+  i:hover {
+    opacity:0;
+  }
+}
+}
+
+.profile-picture-container {
+  text-align: center;
+  @include span-columns(12);
+}
+
+.profile-picture-fade {
+  z-index: 100;
+  float: center;
+
+
+}
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  display: inline;
+  border-radius: 50%;
+  position: relative;
+  bottom: -155px;
+
 
 }
