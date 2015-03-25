@@ -23,7 +23,18 @@ export default Model.extend({
 
   toJSON: function(){
     var data = this._super();
-    var creatorId = this.get('createdBy.id');
+    console.log(data);
+
+    // var creatorId = this.get('createdBy.objectId');
+
+    var creatorId;
+
+    if (this.get('createdBy.objectId')) {
+      creatorId = this.get('createdBy.objectId');
+    } else {
+      creatorId = this.get('createdBy.id');
+    }
+
     if(creatorId) {
     Ember.set(data, 'createdBy', {
         __type: 'Pointer',

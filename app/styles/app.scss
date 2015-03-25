@@ -38,8 +38,8 @@ body {
   font-weight: 100;
   color: $primarytextcolor;
 }
-a,
-i {
+
+ i {
   cursor: pointer;
   color: $primarycolor;
   &:hover {
@@ -49,6 +49,13 @@ i {
   }
 }
 
+a {
+  color: $primarycolor;
+  &:hover {
+    text-decoration: none;
+    color: $accentcolor;
+  }
+}
 
 
 
@@ -116,7 +123,7 @@ i {
   @include transition (all .2s ease-in-out);
   position: relative;
   margin: 0 $card-margin $base-spacing;
-  cursor: pointer;
+/*   cursor: pointer; */
   text-align: center;
 
 
@@ -374,8 +381,8 @@ border-right: 3px solid $primarycolor;
 }
 
 .todo-header {
-  font-family: $secondaryfont;
-  font-size: 3em;
+  font-family: $primaryfont;
+  font-size: 4em;
   text-align: center;
   font-weight: 100;
 }
@@ -401,7 +408,7 @@ h4 {
   padding: 15px;
   font-size: 20px;
   &:hover {
-  background-color: $primarycolor;
+  background-color: transparent;
   border: solid 3px $accentcolor;
   color: $accentcolor;
   }
@@ -817,7 +824,7 @@ a.upload {
   font-color: gray;
 }
 
-a,
+
 i,
 input[type="file"],
 button{
@@ -854,6 +861,41 @@ button.register-button {
   margin-left: 245px;
 }
 
-.cards {
-  width: 900px;
+
+.home-pics {
+  margin-left: 0px;
+}
+
+.editing-goal-cards {
+  margin-left: -145px;
+}
+
+.login-form {
+  margin-top: 7em;
+}
+
+.instructions {
+  text-align: center;
+  position: relative;
+  bottom: -240px;
+  left: -7px;
+  -webkit-animation-name: jasperfade;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-duration: 10s;
+}
+
+.modal {
+  font-size: 4em;
+}
+
+.modal > label {
+  background: transparent;
+  position: fixed;
+  left: 201px;
+  bottom: -20px;
+}
+
+.loggy {
+  cursor: pointer;
 }

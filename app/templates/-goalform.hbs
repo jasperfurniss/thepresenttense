@@ -6,7 +6,7 @@
   <div>{{input class="goal-input" placeholder="Goal" value=title}}</div>
 
   <div class="pictures">
-    <div class="cards">
+    <div class="cards editing-goal-cards">
       <div class="card">
         <div class="card-image editing first" style=imageStyle>
           <img class="photo1 selectingphoto" tabindex="0" {{bind-attr src=session.currentUser.photo1.url}}>
@@ -34,19 +34,8 @@
     </a>
   </div>
 
-  <!-- <div class="second"><img class="edit-images second" {{!bind-attr src=session.photo1.url}}/></div> -->
+    <button class="goal-button" type="submit" {{action 'saveGoal' on="submit"}}>Save this Goal</button>
 
-  <!-- <img class="edit-images" {{!bind-attr src=session.photo2.url}} alt="" />
-  <img class="edit-images" {{!bind-attr src=session.photo3.url}} alt="" /> -->
-
-  {{!log session.photo1.url}}
-  {{!log session.photo2.url}}
-  {{!log session.photo3.url}}
-
-
-
-
-  <button class="goal-button" type="submit" {{action 'saveGoal' on="submit"}}>Save this Goal</button>
 </form>
 
 

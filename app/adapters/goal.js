@@ -57,6 +57,7 @@ export default Ember.Object.extend({
   },
 
   save: function(name, record){
+    // console.log(name, record);
     if(record.id) {
       return ajax({
         url: "https://api.parse.com/1/classes/Goal/" + record.id,
