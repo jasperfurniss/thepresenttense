@@ -38,12 +38,14 @@ body {
   font-weight: 100;
   color: $primarytextcolor;
 }
-a, i {
+a,
+i {
   cursor: pointer;
   color: $primarycolor;
   &:hover {
     text-decoration: none;
     color: $accentcolor;
+    cursor: pointer;
   }
 }
 
@@ -133,8 +135,7 @@ a, i {
 .first {
   width: 375px;
   height: 375px;
-/* background-image: url('https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/10861116_10205391607859386_7049947253420727357_o.jpg');  background-size: cover;
- */  display: block;
+  display: block;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -143,8 +144,7 @@ a, i {
 .second {
   width: 375px;
   height: 375px;
-/* background-image: url('https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/11021115_10204004547182634_2388306018798631804_n.jpg?oh=90fa0680420f91ab53cf72f792c6f707&oe=557CC883&__gda__=1434480636_237d2e9aa749d5dbc2fa48bbcf5d426a');  background-size: cover;
- */  display: block;
+  display: block;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -161,6 +161,11 @@ a, i {
   width: 375px;
   height: 375px;
     }
+
+  .editing {
+    width: 250px;
+    height: 250px;
+  }
 
 .saying {
   font-family: $primaryfont;
@@ -369,8 +374,8 @@ border-right: 3px solid $primarycolor;
 }
 
 .todo-header {
-  font-family: $primaryfont;
-  font-size: 5em;
+  font-family: $secondaryfont;
+  font-size: 3em;
   text-align: center;
   font-weight: 100;
 }
@@ -414,7 +419,7 @@ h4 {
 .login-form, .register-form {
   vertical-align: center;
   text-align: center;
-  padding-top: 7em;
+  padding-top: 0em;
 }
 
 
@@ -543,7 +548,7 @@ body {
     }
 
     &__overlay {
-        background: $primarytextcolor;
+        background: $primarycolor;
         bottom: 0;
         left: 0;
         position: fixed;
@@ -684,6 +689,7 @@ textarea {
   color: white;
   font-family: $primaryfont;
   font-weight: 100;
+  padding: 25px;
 
   &:focus {
     outline: none;
@@ -725,6 +731,129 @@ textarea {
   border-radius: 50%;
   position: relative;
   bottom: -155px;
+}
 
+.motives {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
 
+.upload-header {
+  font-size: 2em;
+  font-family: $primaryfont;
+  font-weight: 100;
+
+}
+
+input[type=file] {
+  display: inline;
+  color: transparent;
+  width: 307px;
+  height: 55px;
+  position: relative;
+  bottom: 13px;
+  right: 13px;
+  opacity: 0;
+  z-index: 10;
+}
+
+.motives > input[type="file"] {
+  position: relative;
+  bottom: 0px;
+  right: 20px;
+  opacity: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.plus {
+  font-size: 3em;
+}
+
+.plus > a {
+  position: relative;
+  bottom: 127px;
+  z-index: 0;
+  opacity: 1;
+  margin: 90px;
+}
+
+.plus > a {
+  position: relative;
+  bottom: 137px;
+  z-index: 0;
+  opacity: 1;
+  margin: 51px;
+  border: 2px dashed;
+  padding: 22px;
+}
+
+.motives {
+  border-radius: 4%;
+}
+
+.register-profile-pic {
+  position: relative;
+  bottom: 360px;
+  font-size: 1.33em;
+}
+
+a.upload {
+  margin-left: -226px;
+  padding: 10px;
+  border: 2px dashed;
+  border-height: 6px;
+  width: 6px;
+}
+
+.littlecamera {
+  margin: 0 0 10px;
+  position: relative;
+  bottom: 30px;
+  right: -30px;
+  font-color: gray;
+}
+
+a,
+i,
+input[type="file"],
+button{
+  cursor: pointer;
+  color: $primarycolor;
+  &:hover {
+    text-decoration: none;
+    color: $accentcolor;
+    cursor: pointer;
+  }
+}
+
+button.register-button {
+  width: 153px;
+  position: relative;
+  bottom: 91px;
+}
+
+.sign-up-link.alreadyhaveanaccount {
+  margin: 0px;
+  position: relative;
+  left: -605px;
+  bottom: 25px;
+}
+
+.selectingphoto {
+  &:focus{
+    border: 5px $primarycolor dashed;
+    border-radius: 50%;
+  }
+}
+
+.pictures {
+  margin-left: 245px;
+}
+
+.cards {
+  width: 900px;
 }

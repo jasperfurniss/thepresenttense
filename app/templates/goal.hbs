@@ -48,6 +48,14 @@
   </div>
 </div>
 
+{{#link-to 'account'}}
+  <a class="myaccountlink">My Account      |</a>
+{{/link-to}}
+<div class="logstuff">
+  <a class="loggy">
+    <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>
+  </a>
+</div>
 
 
 {{outlet}}

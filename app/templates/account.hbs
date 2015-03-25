@@ -1,24 +1,34 @@
-
-<div class="profile-picture-container" >
-  <img class="profile-picture"  {{bind-attr src=session.currentUser.accountpicture.url}}/>
+<div class="profile-picture-container">
+  <img class="profile-picture" {{bind-attr src=session.currentUser.accountpicture.url}} />
   <h1 class="logo profile-picture-fade">{{fa-icon "arrow-circle-down"}}</h1>
 </div>
-
-
-<form class="register-form" {{action 'register' on='submit'}}>
-      <div>{{input value=firstname class="login-inputs form-control" type='name' placeholder='First Name'}}</div>
-      <div>{{input value=lastname class="login-inputs form-control" type='name' placeholder='Last Name'}}</div>
-      <div>{{input value=username class="login-inputs form-control" type='email' placeholder='Email'}}</div>
-      <div>{{input value=password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
-      <div>{{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}</div>
-      {{#link-to 'login'}}
-        <button type="submit" class="register-button" {{action 'register'}}>Save Account</button>
-      {{/link-to}}
+<form class="register-form" {{action 'updateAccount' on='submit'}}>
+  <div>{{input value=model.firstname class="login-inputs form-control" type='name' placeholder='First Name'}}</div>
+  <div>{{input value=model.lastname class="login-inputs form-control" type='name' placeholder='Last Name'}}</div>
+  <div>{{input value=model.username class="login-inputs form-control" type='email' placeholder='Email'}}</div>
+  <div>{{input value=model.password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
+  <div>{{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}</div>
+  <div class="motivepictures">
+    {{select-file file=photoOneFile class="motives uploadpic login-inputs form-control"}}
+    {{select-file file=photoTwoFile class="motives uploadpic login-inputs form-control"}}
+    {{select-file file=photoThreeFile class="motives uploadpic login-inputs form-control"}}
+  </div>
+  <div class="plus">
+    <a>1</a>
+    <a>2</a>
+    <a>3</a>
+  </div>
+  <div>
+    <button type="submit" class="register-button">Save Account</button>
+  </div>
 </form>
 
-<input type="file" name="firstphoto" value="">
-<input type="file" name="secondphoto" value="">
-<input type="file" name="thirdphoto" value="">
-
-
+{{#link-to 'account'}}
+  <a class="myaccountlink">My Account      |</a>
+{{/link-to}}
+<div class="logstuff">
+  <a class="loggy">
+    <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>
+  </a>
+</div>
 {{outlet}}

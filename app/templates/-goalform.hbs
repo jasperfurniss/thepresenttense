@@ -8,21 +8,30 @@
   <div class="pictures">
     <div class="cards">
       <div class="card">
-        <div class="card-image first" style=imageStyle>
-          <img class="photo1" {{bind-attr src=model.photo1}}>
+        <div class="card-image editing first" style=imageStyle>
+          <img class="photo1 selectingphoto" tabindex="0" {{bind-attr src=session.currentUser.photo1.url}}>
         </div>
       </div>
-      <div class="card">
-        <div class="card-image second" style=imageStyle>
-          <img class="photo2"{{bind-attr src=model.photo2}}>
+      <div class="card editing">
+        <div class="card-image  editing second" style=imageStyle>
+          <img class="photo2 selectingphoto" tabindex="0" {{bind-attr src=session.currentUser.photo2.url}}>
         </div>
       </div>
-      <div class="card">
-        <div class="card-image third" style=imageStyle>
-          <img class="photo3"{{bind-attr src=model.photo3}}>
+      <div class="card editing">
+        <div class="card-image editing third" style=imageStyle>
+          <img class="photo3 selectingphoto" tabindex="0" {{bind-attr src=session.currentUser.photo3.url}}>
         </div>
       </div>
     </div>
+  </div>
+
+  {{#link-to 'account'}}
+    <a class="myaccountlink">My Account      |</a>
+  {{/link-to}}
+  <div class="logstuff">
+    <a class="loggy">
+      <a class="logout-button" {{ action 'invalidateSession' }}>Logout</a>
+    </a>
   </div>
 
   <!-- <div class="second"><img class="edit-images second" {{!bind-attr src=session.photo1.url}}/></div> -->

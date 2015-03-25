@@ -4,10 +4,21 @@
       <div>{{input value=lastname class="login-inputs form-control" type='name' placeholder='Last Name'}}</div>
       <div>{{input value=username class="login-inputs form-control" type='email' placeholder='Email'}}</div>
       <div>{{input value=password class="login-inputs form-control" type="password" placeholder='Password'}}</div>
-      <div>{{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}</div>
-
+      {{select-file file=accountPictureFile class="uploadpic login-inputs form-control"}}
+      <div class="upload-header">Upload 3 photos that remind you of your life purposes.</div>
+      <div class="">
+        {{select-file file=photoOneFile class="motives uploadpic login-inputs form-control"}}
+        {{select-file file=photoTwoFile class="motives uploadpic login-inputs form-control"}}
+        {{select-file file=photoThreeFile class="motives uploadpic login-inputs form-control"}}
+      </div>
+      <div class="plus camera">
+        <a>{{fa-icon "camera-retro"}}</a>
+        <a>{{fa-icon "camera-retro"}}</a>
+        <a>{{fa-icon "camera-retro"}}</a>
+      </div>
+      <div class="register-profile-pic"><a class="upload">{{fa-icon "camera-retro"}}</a><p class="littlecamera">Upload a profile picture</p></div>
       <button type="submit" class="register-button">Register</button>
-      <div class="sign-up-link">{{#link-to 'login'}}I already have an account{{/link-to}}</div>
+      <div class="sign-up-link alreadyhaveanaccount">{{#link-to 'login'}}I already have an account{{/link-to}}</div>
 </form>
 
 {{outlet}}
