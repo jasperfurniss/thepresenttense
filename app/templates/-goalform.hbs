@@ -3,7 +3,7 @@
     <span class="todo-header">New Goal</span>
   </div>
 
-  <div>{{input class="goal-input" placeholder="Goal" value=title}}</div>
+  <div>{{input class="goal-input" placeholder="Description" value=title}}</div>
 
   <div class="pictures">
     <div class="cards editing-goal-cards">
@@ -24,6 +24,20 @@
       </div>
     </div>
   </div>
+
+<!-- 
+  <div class="type-button">
+    {{radio-buttons name="typeSelect" selectionBinding="model.activity." value="Run" id="type1" disabled=editable}}
+    <label for="type1">Photo1</label>
+  </div>
+  <div class="type-button">
+    {{radio-buttons name="typeSelect" selectionBinding="model.activity." value="Ride" id="type2" disabled=editable}}
+    <label for="type2">Photo2</label>
+  </div>
+  <div class="type-button">
+    {{radio-buttons name="typeSelect" selectionBinding="model.activity." value="Ride" id="type2" disabled=editable}}
+    <label for="type2">Photo3</label>
+  </div> -->
 
   {{#link-to 'account'}}
     <a class="myaccountlink">My Account      |</a>
