@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   find: function(name, id){
     /* jshint unused: false */
-    return ajax("https://api.parse.com/1/classes/Goal/" + id).then(function(goal){
+    return ajax("https://api.parse.com/1/classes/Goal/" + id + "?include=createdBy").then(function(goal){
       goal.id = goal.objectId;
       delete goal.objectId;
       return goal;
@@ -57,7 +57,6 @@ export default Ember.Object.extend({
   },
 
   save: function(name, record){
-    // console.log(name, record);
     if(record.id) {
       return ajax({
         url: "https://api.parse.com/1/classes/Goal/" + record.id,

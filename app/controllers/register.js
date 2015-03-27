@@ -4,29 +4,30 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     register: function() {
-      this.uploadImageOne().then(function(image1) {
-        this.uploadImageTwo().then(function(image2) {
-          this.uploadImageThree().then(function(image3) {
-            this.uploadPicture().then(function(imageFile){
-        var data = this.getProperties('username', 'password');
+      var one = this.uploadImageOne();
+      var two = this.uploadImageTwo();
+      var three = this.uploadImageThree();
+      var profile = this.uploadPicture();
+      Ember.RSVP.allSettled([one, two, three, profile]).then(function(images){
+        var data = this.getProperties('username', 'firstname', 'lastname', 'password');
         data.email = data.username;
-        data.accountpicture = {
-          "name": imageFile.name,
-          "__type": "File"
-        };
-
         data.photo1 = {
-          "name": image1.name,
+          "name": images[0].value.name,
           "__type": "File"
         };
 
         data.photo2 = {
-          "name": image2.name,
+          "name": images[1].value.name,
           "__type": "File"
         };
 
         data.photo3 = {
-          "name": image3.name,
+          "name": images[2].value.name,
+          "__type": "File"
+        };
+
+        data.accountpicture = {
+          "name": images[3].value.name,
           "__type": "File"
         };
 
@@ -41,9 +42,6 @@ export default Ember.Controller.extend({
           });
         }.bind(this));
       }.bind(this));
-    }.bind(this));
-  }.bind(this));
-}.bind(this));
     }
   },
 

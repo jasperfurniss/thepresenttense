@@ -23,7 +23,6 @@ export default Model.extend({
 
   toJSON: function(){
     var data = this._super();
-    console.log(data);
 
     // var creatorId = this.get('createdBy.objectId');
 
@@ -36,7 +35,7 @@ export default Model.extend({
     }
 
     if(creatorId) {
-    Ember.set(data, 'createdBy', {
+      Ember.set(data, 'createdBy', {
         __type: 'Pointer',
         className: '_User',
         objectId: creatorId
@@ -44,5 +43,9 @@ export default Model.extend({
     }
 
     return data;
-  }
+  },
+
+  photo: function(){
+    return this.get('createdBy.' + this.get('userPhoto') + '.url');
+  }.property('userPhoto')
 });

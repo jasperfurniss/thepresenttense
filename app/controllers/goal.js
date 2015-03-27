@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    timerBackground: function(){
+      var image = this.get('selectedImage');
+      return image ? "background-image: url('" + image + "')" : "";
+    }.property('selectedImage'),
+
   actions: {
 
     destroy: function(goal) {
@@ -23,5 +28,6 @@ export default Ember.Controller.extend({
   },
 
   isEditing: false,
+  focused: false
 
 });

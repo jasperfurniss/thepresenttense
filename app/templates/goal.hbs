@@ -2,7 +2,6 @@
   <ul class="header-list">
   </ul>
 </div>
-{{log model.goal}}
 <div class="left-container">
   <ul class="list">
     <h2 class="todo-header">
@@ -17,6 +16,8 @@
         {{/link-to}}
         <a class="change-buttons" {{action 'destroy' goal}}>{{fa-icon "fa-trash-o"}}</a>
       </li>
+
+      {{goal.photo}}
     {{/each}}
     <div class="create-button">
       {{#link-to 'create'}}
@@ -24,13 +25,11 @@
       {{/link-to}}
     </div>
     <div class="create-button">
-
     </div>
   </ul>
-
-
 </div>
-<div class="right-container">
+
+<div class="right-container" {{bind-attr style=timerBackground}}>
   <div class="timer">
     {{x-timer autoStart=false endTime="1500" format='MM:SS' isStopWatch='true'}}
   </div>
@@ -43,13 +42,14 @@
     <div class="modal__box">
       <label class="bulbmodal" for="modal">&#10006;</label>
       <h2 class="todo-header idea-header">Ideas & Tangents</h2>
-      {{textarea autofocus="autofocus" name="name" rows="5" cols="25" value=session.currentUser.thoughts}}
+
+        {{textarea autofocus="true" name="name" rows="5" cols="25" value=session.currentUser.thoughts}}
 
     </div>
   </div>
 </div>
-<!-- <div class="wrap">
-</div> -->
+<div class="wrap">
+</div>
 
 
 {{#link-to 'account'}}

@@ -377,8 +377,7 @@ border-right: 3px solid $primarycolor;
   text-align: center;
 }
 
-.right-container {
-}
+
 
 .todo-header {
   font-family: $primaryfont;
@@ -407,10 +406,23 @@ h4 {
   margin: 10px;
   padding: 15px;
   font-size: 20px;
+  outline: none;
   &:hover {
   background-color: transparent;
   border: solid 3px $accentcolor;
   color: $accentcolor;
+  }
+
+  &:focus {
+    background-color: transparent;
+    outline: $primarycolor;
+    color: $primarycolor;
+  }
+
+  &:active {
+    background-color: transparent;
+    outline: $primarycolor;
+    color: $primarycolor;
   }
 }
 
