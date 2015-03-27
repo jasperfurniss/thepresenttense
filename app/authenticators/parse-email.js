@@ -47,6 +47,4 @@ export default Base.extend({
  });
 })
 
-
-
 });

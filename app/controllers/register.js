@@ -46,16 +46,7 @@ export default Ember.Controller.extend({
   },
 
 
-  uploadPicture: function() {
-    var file = this.get('accountPictureFile');
-    return ajax({
-      url: "https://api.parse.com/1/files/" + file.name,
-      type: "POST",
-      contentType: file.type,
-      data: file,
-      processData: false
-    });
-  },
+
 
   uploadImageOne: function() {
     var file = this.get('photoOneFile');
@@ -90,7 +81,16 @@ export default Ember.Controller.extend({
     });
   },
 
-
+  uploadPicture: function() {
+    var file = this.get('accountPictureFile');
+    return ajax({
+      url: "https://api.parse.com/1/files/" + file.name,
+      type: "POST",
+      contentType: file.type,
+      data: file,
+      processData: false
+    });
+  },
 
 
 

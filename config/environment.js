@@ -16,7 +16,8 @@ module.exports = function(environment) {
     'simple-auth': {
       routeAfterAuthentication: 'home',
       authorizer: 'authorizer:parse',
-      crossOriginWhitelist: ['https://api.parse.com']
+      crossOriginWhitelist: ['https://api.parse.com'],
+      routeIfAlreadyAuthenticated: 'home'
     },
 
     parseKeys: {
